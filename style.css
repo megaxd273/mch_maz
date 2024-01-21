@@ -1,0 +1,184 @@
+body {
+  background-color: #fff;
+  font-family: 'Roboto', sans-serif;
+  scroll-behavior: smooth;
+}
+main {
+  height: 2000px;
+}
+a,
+a:visited {
+  color: #000;
+  text-decoration: none;
+}
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* HEADER*/
+.header {
+  height: 800px;
+  background-image: url('./images/thetwo.jpg');
+
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.header__logo {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.logo__image {
+  width: 110px;
+}
+.logo__subtitle,
+.logo__title {
+  color: #303636;
+  margin: 0;
+}
+.logo__title {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 115%;
+}
+
+.header__container {
+  margin-left: auto;
+  margin-right: auto;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.header__top-panel {
+  padding: 0.9rem;
+}
+/* navigation menu*/
+.menu {
+  z-index: 15;
+  width: 100%;
+  padding: 0.2rem 2rem;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #000;
+  transition: transform 0.2s linear;
+}
+.menu_hidden {
+  transform: translateY(-350px);
+}
+.menu_visible {
+  top: 0;
+  left: 0;
+}
+.menu__list {
+  display: flex;
+  gap: 0.9rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.menu__item {
+  position: relative;
+  display: flex;
+  margin-right: 48px;
+  align-items: center;
+}
+.menu__sub-list {
+  display: block;
+  position: absolute;
+  top: 30px;
+  left: -10px;
+  padding: 0 10px 0 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  height: 0;
+  transition: 0.5s ease;
+}
+.menu__item.open .menu__sub-list {
+  padding: 10px;
+  height: auto;
+}
+.menu__sub-item {
+  margin-bottom: 10px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.menu__item.open .menu__sub-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* navigation links */
+.menu__link {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 150%;
+  position: relative;
+}
+.menu__link.menu__link_has-children::after {
+  content: '';
+  display: inline-block;
+  flex-shrink: 0;
+  width: 16px;
+  height: 22px;
+  margin-left: 5px;
+  background: url('./images/arrow-btn.svg') 50% 50% no-repeat;
+  transition: 0.5s;
+  vertical-align: middle;
+}
+.menu__item.open .menu__link.menu__link_has-children::after {
+  transform: rotate(-180deg);
+}
+.menu__link:not(.menu__link_has-children)::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #3498db;
+  bottom: 0;
+  left: 0;
+  transform-origin: bottom right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+.menu__link:hover::before {
+  transform-origin: bottom left;
+  transform: scaleX(1);
+}
+/* часто задаваемые вопросы*/
+
+section {
+  min-height: 100vh;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.faq {
+  max-width: 700px;
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgb(216, 24, 24);
+  cursor: pointer;
+}
+.faq__question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.7s ease-in-out;
+}
+.faq__answer p {
+  padding-top: 1rem;
+  line-height: 110%;
+}
+.faq.active .faq__answer {
+  max-height: 300px;
+}
