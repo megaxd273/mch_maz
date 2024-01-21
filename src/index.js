@@ -22,13 +22,17 @@ const containsHidden = () => header.classList.contains('menu_hidden');
 const rect = headerTopPanel.getBoundingClientRect();
 
 window.addEventListener('scroll', () => {
-  scrollY > rect.bottom
+  window.scrollY > rect.height
     ? (headerStyle.position = 'fixed')
     : (headerStyle.position = 'static');
-  window.scrollY <= rect.bottom
+  window.scrollY <= rect.height
     ? header.classList.remove('menu_visible')
     : header.classList.add('menu_visible');
-  if (scrollPosition() > lastScroll && !containsHidden() && scrollY > 84) {
+  if (
+    scrollPosition() > lastScroll &&
+    !containsHidden() &&
+    scrollPosition() > rect.height
+  ) {
     header.classList.add('menu_hidden');
     console.log('down');
   } else if (scrollPosition() < lastScroll && containsHidden()) {
