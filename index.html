@@ -26,14 +26,17 @@
           </div>
         </a>
       </div>
+      <div class="burger">
+        <span></span>
+      </div>
 
       <nav class="header__container menu">
         <ul class="menu__list">
           <li class="menu__item">
-            <a href="#" class="menu__link">Главная</a>
+            <a href="index.html" class="menu__link">Главная</a>
           </li>
           <li class="menu__item">
-            <a href="" class="menu__link menu__link_has-children">Услуги</a>
+            <a href="#" class="menu__link menu__link_has-children">Услуги</a>
             <ul class="menu__sub-list">
               <li class="menu__sub-item">
                 <a href="" class="menu__sub-link">Гинекология</a>
@@ -59,40 +62,42 @@
             </ul>
           </li>
           <li class="menu__item">
-            <a href="" class="menu__link menu__link_has-children">О нас</a>
+            <a href="#rating" class="menu__link menu__link_has-children"
+              >О нас</a
+            >
             <ul class="menu__sub-list">
               <li class="menu__sub-item">
-                <a href="" class="menu__sub-link">Руководство</a>
+                <a href="#" class="menu__sub-link">Руководство</a>
               </li>
               <li class="menu__sub-item">
-                <a href="" class="menu__sub-link">Врачи</a>
+                <a href="#" class="menu__sub-link">Врачи</a>
               </li>
               <li class="menu__sub-item">
-                <a href="" class="menu__sub-link">История</a>
+                <a href="#" class="menu__sub-link">История</a>
               </li>
               <li class="menu__sub-item">
-                <a href="" class="menu__sub-link">Галерея</a>
+                <a href="#" class="menu__sub-link">Галерея</a>
               </li>
               <li class="menu__sub-item">
-                <a href="" class="menu__sub-link">ЗОЖ</a>
+                <a href="#" class="menu__sub-link">ЗОЖ</a>
               </li>
             </ul>
           </li>
           <li class="menu__item">
-            <a href="" class="menu__link">Вакансии</a>
+            <a href="index.html" class="menu__link">Вакансии</a>
           </li>
           <li class="menu__item">
-            <a href="" class="menu__link">Новости</a>
+            <a href="#news" class="menu__link">Новости</a>
           </li>
           <li class="menu__item">
-            <a href="" class="menu__link">Контакты</a>
+            <a href="#footer" class="menu__link">Контакты</a>
           </li>
         </ul>
       </nav>
     </header>
     <main>
-      <section>
-        <h2 data-title="123">Новости</h2>
+      <section id="news" style="width: 100%">
+        <h2>Новости</h2>
         <div class="news">
           <div class="news__slider-wrapper">
             <button class="news__button news__button_prev">
@@ -130,57 +135,133 @@
           </div>
         </div>
       </section>
-      <section>
-        <h2>Часто задаваемые вопросы</h2>
-        <article class="faq">
-          <div class="faq__question">
-            <h3>Можно ли записаться на медицинское освидетельствование?</h3>
+      <section class="faq-section">
+        <div class="container faq-container">
+          <h2 class="faq-section__title">Часто задаваемые вопросы</h2>
+          <article class="faq">
+            <div class="faq__question">
+              <h3>Можно ли записаться на медицинское освидетельствование?</h3>
+            </div>
+            <div class="faq__answer">
+              <p>
+                Да, можно. На сайте есть отдельный раздел. Ознакомьтесь с ценами
+                и отправьте заявку через форму на сайте
+              </p>
+            </div>
+          </article>
+          <article class="faq">
+            <div class="faq__question">
+              <h3>Как получить выписку из амбулаторной карты?</h3>
+            </div>
+            <div class="faq__answer">
+              <p>
+                Получить выписку из амбулаторной карты можно заполнив заявку
+                через форму на сайте. Выписка из медицинских документов
+                готовится в течение 5-ти дней с момента поступления электронного
+                заявления на сайт учреждения. После получения по указанной
+                электронной почте подтверждения о готовности документа
+                обращаться лично в доврачебный кабинет №217. Выписка выдается
+                строго по предъявлению документа, удостоверяющего личность.
+              </p>
+            </div>
+          </article>
+          <article class="faq">
+            <div class="faq__question">
+              <h3>
+                За чей счет работник при приеме на работу должен проходить
+                предварительный медицинский осмотр?
+              </h3>
+            </div>
+            <div class="faq__answer">
+              <p>
+                Медосмотр производится за счет средств нанимателя; затраченные
+                средства с претендента не удерживаются. Оказание медицинских
+                услуг при проведении медосмотров лиц, поступающих на работу,
+                осуществляется в порядке, установленном постановлением Совета
+                Министров РБ от 10.02.2009 № 182 «Об оказании платных
+                медицинских услуг государственными учреждениями
+                здравоохранения».
+              </p>
+            </div>
+          </article>
+          <article class="faq">
+            <div class="faq__question">
+              <h3>
+                Кто является ответственным за организацию прохождения
+                медицинских осмотров: составляет списки работников, подлежащих
+                периодическому медосмотру, следит за окончанием сроков
+                медосмотров?
+              </h3>
+            </div>
+            <div class="faq__answer">
+              <p>
+                Прямое указание на ответственного за организацию прохождения
+                медицинских осмотров в действующем законодательстве отсутствует.
+                По этой причине до сих пор ведутся дискуссии о том, кто им
+                должен быть – специалист по кадрам или специалист по охране
+                труда, кто должен составлять списки на медосмотр, контролировать
+                его прохождение работающими и т.д.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section id="rating" class="reviews-section">
+        <div class="container reviews-container">
+          <h2 class="reviews-section__title">Отзывы о нас</h2>
+          <div class="reviews-section__container"></div>
+          <div class="reviews-section__buttons-container">
+            <button class="reviews-section__button unselectable">
+              Оставить отзыв
+            </button>
+            <button
+              class="reviews-section__button unselectable reviews-section__button_load-more"
+            >
+              загрузить еще
+            </button>
           </div>
-          <div class="faq__answer">
-            <p>
-              Да, можно. На сайте есть отдельный раздел. Ознакомьтесь с ценами и
-              отправьте заявку через форму на сайте
-            </p>
-          </div>
-        </article>
-        <article class="faq">
-          <div class="faq__question">
-            <h3>Как получить выписку из амбулаторной карты?</h3>
-          </div>
-          <div class="faq__answer">
-            <p>
-              Получить выписку из амбулаторной карты можно заполнив заявку через
-              форму на сайте. Выписка из медицинских документов готовится в
-              течение 5-ти дней с момента поступления электронного заявления на
-              сайт учреждения. После получения по указанной электронной почте
-              подтверждения о готовности документа обращаться лично в
-              доврачебный кабинет №217. Выписка выдается строго по предъявлению
-              документа, удостоверяющего личность.
-            </p>
-          </div>
-        </article>
-        <article class="faq">
-          <div class="faq__question">
-            <h3>
-              За чей счет работник при приеме на работу должен проходить
-              предварительный медицинский осмотр?
-            </h3>
-          </div>
-          <div class="faq__answer">
-            <p>
-              Медосмотр производится за счет средств нанимателя; затраченные
-              средства с претендента не удерживаются. Оказание медицинских услуг
-              при проведении медосмотров лиц, поступающих на работу,
-              осуществляется в порядке, установленном постановлением Совета
-              Министров РБ от 10.02.2009 № 182 «Об оказании платных медицинских
-              услуг государственными учреждениями здравоохранения».
-            </p>
-          </div>
-        </article>
+
+          <dialog data-modal>
+            <form class="review-form" id="review-form">
+              <h3 class="review-form__title">Отзыв</h3>
+              <div class="review-form__user-field">
+                <label class="review-form__label" for="user-name"
+                  >Имя пользователя:</label
+                >
+                <input
+                  class="review-form__input review-form__user-input"
+                  type="text"
+                  id="user-name"
+                  name="user-name"
+                  required
+                  minlength="3"
+                />
+              </div>
+              <div class="review-form__user-field">
+                <label class="review-form__label" for="user-text">Отзыв:</label>
+                <textarea
+                  class="review-form__textarea review-form__user-input"
+                  id="user-text"
+                  name="user-text"
+                  minlength="10"
+                  required
+                ></textarea>
+              </div>
+
+              <button
+                class="review-form__button unselectable"
+                type="button"
+                onclick="addReview()"
+              >
+                Добавить отзыв
+              </button>
+            </form>
+          </dialog>
+        </div>
       </section>
     </main>
 
-    <footer>
+    <footer id="footer">
       <div class="footer__content">
         <div class="footer__contacts">
           <h3 class="footer__title">Контакты</h3>

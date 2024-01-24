@@ -1,52 +1,59 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const fetchData = async () => {
-    try {
-      const response = await fetch('../news.json');
-      const data = await response.json();
-      return data.news;
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
+const fetchData = async () => {
+  try {
+    const response = await fetch('../news.json');
+    const data = await response.json();
+    return data.news;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+};
 
-  const createNewsElement = (pic, link, title, firstDot) => {
-    const sliderLine = document.querySelector('.news__slider-line');
-    const dotsContainer = document.querySelector('.news__dots-wrapper');
-    const newsLink = document.createElement('a');
-    newsLink.href = link;
-    newsLink.textContent = '';
-    newsLink.target = '_blank';
-    newsLink.classList.add('news__link-wrapper');
-    const img = document.createElement('img');
-    const picture = document.createElement('picture');
-    picture.setAttribute('data-title', title);
-    // picture.append(img);
-    img.classList.add('news__slider-img');
-    img.src = pic;
-    sliderLine.append(newsLink);
-    sliderLine.append(img);
-    const dot = document.createElement('div');
-    dot.classList.add('news__dot');
-    if (firstDot) {
-      dot.classList.add('news__dot_active');
-    }
-    dotsContainer.append(dot);
-    const dotsWrapperWidth = dotsContainer.offsetWidth;
-    dotsContainer.style.left = `calc(50% - ${dotsWrapperWidth / 2}px)`;
-  };
+const createNewsElement = (pic, link, title, date, firstDot) => {
+  const sliderLine = document.querySelector('.news__slider-line');
+  const dotsContainer = document.querySelector('.news__dots-wrapper');
 
-  fetchData()
-    .then((news) => {
-      news.forEach((item, index) => {
-        createNewsElement(item.picture, item.link, item.title, index === 0);
-      });
+  const slide = document.createElement('div');
+  slide.classList.add('news__slide');
+
+  const newsLink = document.createElement('a');
+  newsLink.href = link;
+  newsLink.textContent = '';
+  newsLink.target = '_blank';
+  newsLink.classList.add('news__link-wrapper');
+
+  slide.classList.add('news__slider-img');
+  slide.style.backgroundImage = `url(${pic})`;
+  slide.style.backgroundSize = 'cover';
+  slide.style.position = 'center';
+  slide.setAttribute('data-title', title);
+  slide.setAttribute(
+    'data-date',
+    new Date(date).toLocaleDateString('ru-RU', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
     })
-    .then(initSlider);
-});
+  );
+  slide.append(newsLink);
+  sliderLine.append(slide);
+
+  const dot = document.createElement('div');
+  dot.classList.add('news__dot');
+  if (firstDot) {
+    dot.classList.add('news__dot_active');
+  }
+  dotsContainer.append(dot);
+  const dotsWrapperWidth = dotsContainer.offsetWidth;
+  dotsContainer.style.left = `calc(50% - ${dotsWrapperWidth / 2}px)`;
+};
+
 const initSlider = () => {
   const sliderLine = document.querySelector('.news__slider-line');
   const prevButton = document.querySelector('.news__button_prev');
   const nextButton = document.querySelector('.news__button_next');
+  const dots = document.querySelectorAll('.news__dot');
+
   let position = 0;
   let dotIndex = 0;
   let slideDistance = document
@@ -57,7 +64,6 @@ const initSlider = () => {
       .querySelector('.news__slider-img')
       .getBoundingClientRect().width;
   };
-  let dots = document.querySelectorAll('.news__dot');
 
   window.addEventListener('resize', () => {
     position = 0;
@@ -71,10 +77,11 @@ const initSlider = () => {
     dot.addEventListener('click', () => {
       position = slideDistance * index;
       sliderLine.style.left = -position + 'px';
-      indicate(dotIndex);
+      indicate(index);
     });
   });
   const nextSlide = () => {
+    updateSlideDistance();
     if (position < (dots.length - 1) * slideDistance) {
       position += slideDistance;
       dotIndex += 1;
@@ -105,7 +112,19 @@ const initSlider = () => {
   nextButton.addEventListener('click', nextSlide);
   prevButton.addEventListener('click', prevSlide);
 
-  //   setInterval(() => {
-  //     nextSlide();
-  //   }, 3000);
+  // setInterval(() => {
+  //   nextSlide();
+  // }, 3000);
 };
+fetchData().then((news) => {
+  news.forEach((item, index) => {
+    createNewsElement(
+      item.picture,
+      item.link,
+      item.title,
+      item.date,
+      index === 0
+    );
+  });
+  initSlider();
+});
