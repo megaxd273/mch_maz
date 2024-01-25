@@ -1,51 +1,51 @@
 function handleResize() {
-  document.querySelectorAll('.menu__item').forEach(function (item) {
+  const menuItems = document.querySelectorAll('.menu__item');
+
+  menuItems.forEach(function (item) {
     item.onclick = null;
   });
-  document.querySelectorAll('.menu__item').forEach(function (item) {
-    if (window.innerWidth > 1000) {
+
+  if (window.innerWidth > 1000) {
+    menuItems.forEach(function (item) {
       item.onclick = function (e) {
-        // e.stopPropagation();
         clickMenu(e, item);
       };
-    } else {
-      document.querySelector('.menu__item').onclick = toggleMenu;
-    }
-  });
+    });
+  } else {
+    menuItems.forEach(function (item) {
+      item.classList.remove('open');
+      const linkWithChildren = item.querySelector(
+        '.menu__item.menu__item_has-children'
+      );
+      if (linkWithChildren) {
+        linkWithChildren.onclick = toggleMenu;
+      }
+    });
+  }
 }
+
 handleResize();
 
-// window.addEventListener('resize', function () {
-//   console.log(123);
-//   handleResize();
-// });
-
 function clickMenu(e, item) {
-  console.log('qwe');
+  e.stopPropagation();
 
-  e.preventDefault();
   document.querySelectorAll('.menu__item').forEach(function (otherItem) {
     if (otherItem !== item && otherItem.classList.contains('open')) {
       otherItem.classList.remove('open');
     }
   });
+
   item.classList.toggle('open');
 }
 
-function toggleMenu() {
-  console.log('asd');
-
+function toggleMenu(e) {
+  e.stopPropagation();
   document.querySelector('.burger').classList.toggle('active');
   document.querySelector('.menu').classList.toggle('open');
 }
 
 document.querySelector('.burger').addEventListener('click', toggleMenu);
 document.querySelector('.menu').addEventListener('click', toggleMenu);
-
-// document.querySelector('.burger').addEventListener('click', function () {
-//   this.classList.toggle('active');
-//   document.querySelector('.menu').classList.toggle('open');
-// });
 
 let lastScroll = 0;
 const header = document.querySelector('.menu');
@@ -85,6 +85,7 @@ faqs.forEach((el) => {
 
 const reviewButton = document.querySelector('.reviews-section__button');
 const modal = document.querySelector('[data-modal]');
+
 reviewButton.addEventListener('click', () => {
   const scrollbarWidth =
     window.innerWidth - document.documentElement.clientWidth;
@@ -92,6 +93,7 @@ reviewButton.addEventListener('click', () => {
   modal.showModal();
   document.body.style.overflow = 'hidden';
 });
+
 const closeModal = (e) => {
   const dialogDimensions = modal.getBoundingClientRect();
   if (
@@ -105,7 +107,9 @@ const closeModal = (e) => {
     document.body.style.paddingRight = `${0}px`;
   }
 };
+
 modal.addEventListener('click', (e) => closeModal(e));
+
 modal.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     modal.close();
@@ -125,14 +129,31 @@ const reviewsData = [
     userText:
       'Нужно было сделать компьютерную томографию. Заказал талон, приехал в назначенное время и сделал. Получил грамотную расшифровку и остался доволен работой.',
   },
-  { userName: 'Пользователь 3', userText: 'Отзыв 3' },
-  { userName: 'Пользователь 4', userText: 'Отзыв 4' },
-  { userName: 'Пользователь 5', userText: 'Отзыв 5' },
-  { userName: 'Пользователь 6', userText: 'Отзыв 6' },
+  {
+    userName: 'Екатерина',
+    userText:
+      'Специалисты грамотные квалифицированные, персонал вежливый внимательный, комфорт с учётом места удовлетворительный, больше радует расположение и что есть где прогуляться на территории.',
+  },
+  {
+    userName: 'Елена',
+    userText:
+      '19.10.2023 делала МРТ. Спасибо большое всему медперсоналу за внимательность , отзывчивость, доброту, профессионализм.',
+  },
+  {
+    userName: 'Ева П.',
+    userText:
+      'Спасибо огромнейшее .начиная с приемного отделения.Все медицинские работники очень вежливые, понимающие.',
+  },
+  {
+    userName: 'Василий',
+    userText:
+      'Ставили пломбу в данной медсанчасти. Стоматолог хороший специалист. Всё сделал качественно, думаю пломба простоит долго. Буду ещё обращаться.',
+  },
 ];
 function addReviewsToPage(reviews) {
   const container = document.querySelector('.reviews-section__container');
   container.innerHTML = '';
+
   reviews.forEach((review) => {
     const reviewElement = document.createElement('div');
     reviewElement.classList.add('review-card');
@@ -172,10 +193,16 @@ function addReviewsToPage(reviews) {
         />
       </svg>
     `;
+
     profileContainer.append(reviewImg, reviewName);
 
     reviewElement.append(profileContainer, reviewText);
     container.append(reviewElement);
+  });
+  const paths = document.querySelectorAll('.review-card__img svg path');
+
+  paths.forEach((path) => {
+    path.style.fill = getRandomColor();
   });
 }
 addReviewsToPage(reviewsData);
@@ -189,19 +216,13 @@ function getRandomColor() {
   return color;
 }
 
-const paths = document.querySelectorAll('.review-card__img svg path');
-
-paths.forEach((path) => {
-  path.style.fill = getRandomColor();
-});
-
 const loadMoreBtn = document.querySelector(
   '.reviews-section__button_load-more'
 );
 const cardsArray = Array.from(document.querySelectorAll('.review-card'));
 
 const responsiveCases = [
-  { minWidth: 1150, maxCardsToShow: 8 },
+  { minWidth: 1250, maxCardsToShow: 8 },
   { minWidth: 900, maxCardsToShow: 6 },
   { minWidth: 600, maxCardsToShow: 4 },
   { minWidth: 0, maxCardsToShow: 2 },
@@ -209,7 +230,10 @@ const responsiveCases = [
 
 function handleResponsiveCases() {
   const width = window.innerWidth;
-  let showLoadMoreBtn = true;
+  let showLoadMoreBtn =
+    document.querySelectorAll('.review-card.review-component_hidden').length >
+    0;
+  loadMoreBtn.classList.toggle('review-component_hidden', !showLoadMoreBtn);
 
   for (const { minWidth, maxCardsToShow } of responsiveCases) {
     if (width > minWidth) {
@@ -223,12 +247,13 @@ function handleResponsiveCases() {
         item.classList.add('review-component_hidden')
       );
 
-      showLoadMoreBtn = hiddenCards.length > 0;
+      showLoadMoreBtn =
+        document.querySelectorAll('.review-card.review-component_hidden')
+          .length > 0;
 
       break;
     }
   }
-
   loadMoreBtn.classList.toggle('review-component_hidden', !showLoadMoreBtn);
 }
 

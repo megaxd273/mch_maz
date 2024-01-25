@@ -1,31 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter&family=Roboto:wght@300&display=swap"
-      rel="stylesheet"
-    />
     <script src="./src/index.js" defer></script>
     <title>МСЧ</title>
   </head>
   <body>
     <header class="header">
       <div class="header__container header__top-panel">
-        <a href="#" class="logo header__logo">
-          <img class="logo__image" src="./images/logo.png" alt="МАЗ" />
+        <div class="logo header__logo">
+          <a href="#">
+            <img class="logo__image" src="./images/logo.png" alt="МАЗ" />
+          </a>
           <div class="logo__details">
             <h1 class="logo__title">Медико-санитарная часть</h1>
             <p class="logo__subtitle">Минского автомобильного завода</p>
           </div>
-        </a>
+        </div>
+
+        <div class="header__row-container">
+          <div class="header__row">
+            <a
+              href="https://yandex.by/maps/157/minsk/house/Zk4YcAFgQEUBQFtpfXR3c35rZQ==/?ll=27.660907%2C53.862281&z=16.69"
+              class="header__link"
+            >
+              <figure class="header__figure">
+                <svg
+                  version="1.0"
+                  id="Layer_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="800px"
+                  height="800px"
+                  viewBox="0 0 64 64"
+                  enable-background="new 0 0 64 64"
+                  xml:space="preserve"
+                  class="header__icon"
+                >
+                  <path
+                    fill="#363636"
+                    d="M32,0C18.746,0,8,10.746,8,24c0,5.219,1.711,10.008,4.555,13.93c0.051,0.094,0.059,0.199,0.117,0.289l16,24
+          C29.414,63.332,30.664,64,32,64s2.586-0.668,3.328-1.781l16-24c0.059-0.09,0.066-0.195,0.117-0.289C54.289,34.008,56,29.219,56,24
+          C56,10.746,45.254,0,32,0z M32,32c-4.418,0-8-3.582-8-8s3.582-8,8-8s8,3.582,8,8S36.418,32,32,32z"
+                  />
+                </svg>
+                <figcaption class="header__caption">
+                  Адрес: 220021 г. Минск, ул. Социалистическая 10
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+          <div class="header__row">
+            <a href="mailto:meddep1@maz.by" class="header__link">
+              <figure class="header__figure">
+                <svg
+                  viewBox="0 -2.5 20 20"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  class="header__icon"
+                >
+                  <g
+                    id="Page-1"
+                    stroke="none"
+                    stroke-width="1"
+                    fill="none"
+                    fill-rule="evenodd"
+                  >
+                    <g
+                      id="Dribbble-Light-Preview"
+                      transform="translate(-300.000000, -922.000000)"
+                      fill="#363636"
+                    >
+                      <g
+                        id="icons"
+                        transform="translate(56.000000, 160.000000)"
+                      >
+                        <path
+                          d="M262,764.291 L254,771.318 L246,764.281 L246,764 L262,764 L262,764.291 Z M246,775 L246,766.945 L254,773.98 L262,766.953 L262,775 L246,775 Z M244,777 L264,777 L264,762 L244,762 L244,777 Z"
+                          id="email-[#1573]"
+                        ></path>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+                <figcaption class="header__caption">meddep1@maz.by</figcaption>
+              </figure>
+            </a>
+          </div>
+          <div class="header__row">
+            <a href="tel:+375-17-217-99-43" class="header__link">
+              <figure class="header__figure">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="header__icon"
+                >
+                  <path
+                    d="M16.5562 12.9062L16.1007 13.359C16.1007 13.359 15.0181 14.4355 12.0631 11.4972C9.10812 8.55901 10.1907 7.48257 10.1907 7.48257L10.4775 7.19738C11.1841 6.49484 11.2507 5.36691 10.6342 4.54348L9.37326 2.85908C8.61028 1.83992 7.13596 1.70529 6.26145 2.57483L4.69185 4.13552C4.25823 4.56668 3.96765 5.12559 4.00289 5.74561C4.09304 7.33182 4.81071 10.7447 8.81536 14.7266C13.0621 18.9492 17.0468 19.117 18.6763 18.9651C19.1917 18.9171 19.6399 18.6546 20.0011 18.2954L21.4217 16.883C22.3806 15.9295 22.1102 14.2949 20.8833 13.628L18.9728 12.5894C18.1672 12.1515 17.1858 12.2801 16.5562 12.9062Z"
+                    fill="#363636"
+                  />
+                </svg>
+                <figcaption class="header__caption">
+                  +375 (17) 217-98-43
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+        </div>
       </div>
+
       <div class="burger">
         <span></span>
       </div>
@@ -35,56 +124,56 @@
           <li class="menu__item">
             <a href="index.html" class="menu__link">Главная</a>
           </li>
-          <li class="menu__item">
-            <a href="#" class="menu__link menu__link_has-children">Услуги</a>
+          <li class="menu__item menu__item_has-children">
+            <a href="#services" class="menu__link">Услуги</a>
             <ul class="menu__sub-list">
               <li class="menu__sub-item">
-                <a href="" class="menu__sub-link">Гинекология</a>
+                <a href="#services" class="menu__sub-link">Гинекология</a>
               </li>
               <li class="menu__sub-item">
-                <a href="" class="menu__sub-link">Неврология</a>
+                <a href="#services" class="menu__sub-link">Неврология</a>
               </li>
               <li class="menu__sub-item">
-                <a href="" class="menu__sub-link">Терапия</a>
+                <a href="#services" class="menu__sub-link">Терапия</a>
               </li>
               <li class="menu__sub-item">
-                <a href="" class="menu__sub-link">Диагностика</a>
+                <a href="#services" class="menu__sub-link">Диагностика</a>
               </li>
               <li class="menu__sub-item">
-                <a href="" class="menu__sub-link">Лаборатория</a>
+                <a href="#services" class="menu__sub-link">Лаборатория</a>
               </li>
               <li class="menu__sub-item">
-                <a href="" class="menu__sub-link">Офтальмология</a>
+                <a href="#services" class="menu__sub-link">Офтальмология</a>
               </li>
               <li class="menu__sub-item">
-                <a href="" class="menu__sub-link">Рентгенология</a>
+                <a href="#services" class="menu__sub-link">Рентгенология</a>
+              </li>
+            </ul>
+          </li>
+          <li class="menu__item menu__item_has-children">
+            <a href="#rating" class="menu__link">О нас</a>
+            <ul class="menu__sub-list">
+              <li class="menu__sub-item">
+                <a href="#rating" class="menu__sub-link">Руководство</a>
+              </li>
+              <li class="menu__sub-item">
+                <a href="#footer" class="menu__sub-link">Врачи</a>
+              </li>
+              <li class="menu__sub-item">
+                <a href="#footer" class="menu__sub-link">История</a>
+              </li>
+              <li class="menu__sub-item">
+                <a href="#rating" class="menu__sub-link">Галерея</a>
+              </li>
+              <li class="menu__sub-item">
+                <a href="#faq" class="menu__sub-link">ЗОЖ</a>
               </li>
             </ul>
           </li>
           <li class="menu__item">
-            <a href="#rating" class="menu__link menu__link_has-children"
-              >О нас</a
+            <a href="https://med.maz.by/vacancies" class="menu__link"
+              >Вакансии</a
             >
-            <ul class="menu__sub-list">
-              <li class="menu__sub-item">
-                <a href="#" class="menu__sub-link">Руководство</a>
-              </li>
-              <li class="menu__sub-item">
-                <a href="#" class="menu__sub-link">Врачи</a>
-              </li>
-              <li class="menu__sub-item">
-                <a href="#" class="menu__sub-link">История</a>
-              </li>
-              <li class="menu__sub-item">
-                <a href="#" class="menu__sub-link">Галерея</a>
-              </li>
-              <li class="menu__sub-item">
-                <a href="#" class="menu__sub-link">ЗОЖ</a>
-              </li>
-            </ul>
-          </li>
-          <li class="menu__item">
-            <a href="index.html" class="menu__link">Вакансии</a>
           </li>
           <li class="menu__item">
             <a href="#news" class="menu__link">Новости</a>
@@ -96,8 +185,7 @@
       </nav>
     </header>
     <main>
-      <section id="news" style="width: 100%">
-        <h2>Новости</h2>
+      <section id="news">
         <div class="news">
           <div class="news__slider-wrapper">
             <button class="news__button news__button_prev">
@@ -135,7 +223,165 @@
           </div>
         </div>
       </section>
-      <section class="faq-section">
+      <section class="important-info">
+        <div class="important-info__container">
+          <div class="important-info__time">
+            <h3 class="important-info__title">Время работы</h3>
+            <ul class="important-info__list">
+              <li class="important-info__item">
+                <strong>Понедельник - Пятница</strong>
+              </li>
+              <li class="important-info__item">
+                <strong>Медсанчасть:</strong> 8:00 - 18:00
+              </li>
+              <li class="important-info__item">
+                <strong>Стол справок:</strong> 7:00 - 18:00
+              </li>
+              <li class="important-info__item">
+                <strong>Лаборатория:</strong> 7:30 - 17:00
+              </li>
+            </ul>
+          </div>
+          <div class="important-info__numbers">
+            <h3 class="important-info__title">Телефоны</h3>
+            <ul class="important-info__numbers-list">
+              <li class="important-info__numbers-item">
+                СТОЛ СПРАВОК 1 - 217-99-73
+              </li>
+              <li class="important-info__numbers-item">
+                СТОЛ СПРАВОК 2 - 217-98-43
+              </li>
+              <li class="important-info__numbers-item">КАССА - 217-23-62</li>
+              <li class="important-info__numbers-item">ПРИЁМНАЯ - 217-99-75</li>
+              <li class="important-info__numbers-item">
+                ОТДЕЛ КАДРОВ - 217-20-56
+              </li>
+              <li class="important-info__numbers-item">
+                ГОРЯЧАЯ ЛИНИЯ МСЧ - 217-22-41
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="services">
+        <div class="services__container">
+          <h3 class="services__title">Услуги</h3>
+          <div class="services__inner-container">
+            <div class="services__item">
+              <img
+                src="https://www.svgrepo.com/show/166832/driving-test.svg"
+                alt="Водительская комиссия"
+                class="services__item-img"
+              />
+              <div class="services__item-title">
+                <a
+                  href="https://med.maz.by/commission"
+                  class="services__item-link"
+                  >Водительская комиссия</a
+                >
+              </div>
+            </div>
+            <div class="services__item">
+              <img
+                src="https://www.svgrepo.com/show/418930/healthcare-medical-stethoscope.svg"
+                alt="Диагностика"
+                class="services__item-img"
+              />
+              <div class="services__item-title">
+                <a
+                  href="https://med.maz.by/diagnostics"
+                  class="services__item-link"
+                  >Диагностика</a
+                >
+              </div>
+            </div>
+            <div class="services__item">
+              <img
+                src="https://www.svgrepo.com/show/201638/ophthalmology-healthcare-and-medical.svg"
+                alt="Офтальмология"
+                class="services__item-img"
+              />
+              <div class="services__item-title">
+                <a
+                  href="https://med.maz.by/ophthalmology"
+                  class="services__item-link"
+                  >Офтальмология</a
+                >
+              </div>
+            </div>
+            <div class="services__item">
+              <img
+                src="https://www.svgrepo.com/show/1253/shiny-tooth.svg"
+                alt="зуб"
+                class="services__item-img"
+              />
+              <div class="services__item-title">
+                <a
+                  href="https://med.maz.by/stomatology"
+                  class="services__item-link"
+                  >Стоматология</a
+                >
+              </div>
+            </div>
+            <div class="services__item">
+              <img
+                src="https://www.svgrepo.com/show/308105/surgery-operation-surgeon-operating-room.svg"
+                alt="Хирургия"
+                class="services__item-img"
+              />
+              <div class="services__item-title">
+                <a href="https://med.maz.by/surgery" class="services__item-link"
+                  >Хирургия</a
+                >
+              </div>
+            </div>
+            <div class="services__item">
+              <img
+                src="https://www.svgrepo.com/show/193585/gun.svg"
+                alt="оружие"
+                class="services__item-img"
+              />
+              <div class="services__item-title">
+                <a
+                  href="https://med.maz.by/gunownership"
+                  class="services__item-link"
+                  >Владение оружием</a
+                >
+              </div>
+            </div>
+            <div class="services__item">
+              <img
+                src="./images/gyn.svg"
+                alt="Гинекология"
+                class="services__item-img"
+              />
+              <div class="services__item-title">
+                <a
+                  href="https://med.maz.by/gynecology"
+                  class="services__item-link"
+                  >Гинекология</a
+                >
+              </div>
+            </div>
+            <div class="services__item">
+              <img
+                src="https://www.svgrepo.com/show/75039/vaccine.svg"
+                alt="Вакцинация"
+                class="services__item-img"
+              />
+              <div class="services__item-title">
+                <a
+                  href="https://med.maz.by/vaccination"
+                  class="services__item-link"
+                  >Вакцинация</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="faq" class="faq-section">
         <div class="container faq-container">
           <h2 class="faq-section__title">Часто задаваемые вопросы</h2>
           <article class="faq">
@@ -561,6 +807,5 @@
       <div class="footer__bottom"></div>
     </footer>
     <script src="./src/news.js" defer></script>
-    <!-- <script src="./src/slider.js" type="module" defer></script> -->
   </body>
 </html>

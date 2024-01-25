@@ -22,19 +22,9 @@ const createNewsElement = (pic, link, title, date, firstDot) => {
   newsLink.classList.add('news__link-wrapper');
 
   slide.classList.add('news__slider-img');
-  slide.style.backgroundImage = `url(${pic})`;
-  slide.style.backgroundSize = 'cover';
-  slide.style.position = 'center';
+  slide.style.background = `url(${pic}) center/cover no-repeat`;
   slide.setAttribute('data-title', title);
-  slide.setAttribute(
-    'data-date',
-    new Date(date).toLocaleDateString('ru-RU', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    })
-  );
+
   slide.append(newsLink);
   sliderLine.append(slide);
 
@@ -112,9 +102,9 @@ const initSlider = () => {
   nextButton.addEventListener('click', nextSlide);
   prevButton.addEventListener('click', prevSlide);
 
-  // setInterval(() => {
-  //   nextSlide();
-  // }, 3000);
+  setInterval(() => {
+    nextSlide();
+  }, 5000);
 };
 fetchData().then((news) => {
   news.forEach((item, index) => {
